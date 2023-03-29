@@ -1,12 +1,14 @@
-function readFromFile(strona){
+function readFromFile(strona, post){
 	const xml = new XMLHttpRequest()
 	xml.onloadend = () => {
 		if (xml.status == 200) {
-			document.querySelector("#out").innerHTML = xml.responseText
+			document.querySelector("main").innerHTML = JSON.parse(xml.responseText)
+			console.log(JSON.parse(xml.responseText))
 		}
 	}
-	xml.open("POST", "./php/${strona}")
-	xml.send()
+	xml.open("POST", `./php/${strona}`)
+	xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xml.send(post)
 }
 
 
@@ -35,6 +37,9 @@ function init() {
 
 function addEvents() {
 	document.querySelector('#login input[type=submit]').onclick = () => {
-		readFromFile('login.php')
+		const l = document.querySelector('input[name=nazwa]').value
+		const p = document.querySelector('input[name=haslo]').value
+		console.log("DZIAŁAM",`login=${l}&pass=${p}`)
+		readFromFile('login.php', `login=${l}&pass=${p}`)
 	}
 }
