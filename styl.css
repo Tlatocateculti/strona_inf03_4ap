@@ -1,0 +1,54 @@
+html,  body {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+div {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 80% auto; 
+	grid-template-rows: 5% 15% 10% auto 10%;
+	
+}
+header {
+	/*height: 20%;*/
+	background: yellow;
+	grid-column: 1 / 3;
+	grid-row: 2;
+	/*grid-row: 5;*/
+}
+
+nav:first-child {
+	/*height: 40%;*/
+	background: blue;
+	grid-column: 1 / 3;
+	grid-row: 1;
+}
+nav:nth-child(3) {
+	background: orange;
+	grid-column: 1 / 3;
+	grid-row: 3;
+	display: flex;
+}
+main {
+	grid-row: 4;
+	background: olive;
+}
+aside {
+	grid-row: 4;
+}
+footer {
+	grid-column: 1 / 3;
+	/*grid-row: 5;*/
+}
+
+.przyciski {
+	border: 2px dotted olive;
+}
+
+.glowne {
+	/*font-size: 20px;*/
+}
+
+#mainbtn {
+	color: red;
+}
